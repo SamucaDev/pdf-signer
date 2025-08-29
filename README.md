@@ -1,69 +1,64 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# PDF Signer
+PDF Signer is a React application developed to sign PDF files in a simple and efficient way. The project follows the Atomic Design methodology to organize components modularly and reusable, making code maintenance and expansion easier.
 
-Currently, two official plugins are available:
+## Atomic Design in the project
+The project structure follows the Atomic Design approach:
+- **Atoms**: Basic, reusable components (e.g., Button, Text, Spinner).
+- **Molecules**: Combinations of atoms to create small functionalities (e.g., ButtonUpload, FileRow).
+- **Organisms**: Larger, more complex components that combine molecules (e.g., UploadPanel).
+- **Templates**: Page structures, combining organisms and other elements.
+- **Pages**: Application pages (UploadPdf, ViewPdf).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This structure ensures modularity and maintainability, allowing features to be added or modified without affecting other parts of the project.
 
-## Expanding the ESLint configuration
+## Key Libraries and Tools
+React & React DOM: Core library for building the interface.
+- **TypeScript**: Static typing for greater safety and predictability.
+- **Vite**: Fast development and build tool for improved performance.
+- **TailwindCSS**: Utility-first CSS framework for rapid styling.
+- **React PDF & pdfjs-dist**: Tools for rendering and manipulating PDF files.
+- **Mock Server (Node.js & Express)**: Simulates backend APIs for local testing.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+  
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Installation and Running
+Clone the repository:
+```md
+git clone <REPOSITORY_URL>
+cd pdf-signer
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
+```md
+npm install
+```
+  
+ Start the mock server:
+```md
+npm run server
+```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+In another terminal, start the application:
+```md
+npm run dev
+```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Open your browser and access:
+```md
+http://localhost:5173
+```
+
+## Project Structure
+```bash
+src/
+ ├─ components/       # Atomic Design (Atoms, Molecules, Organisms)
+ ├─ pages/            # Main pages
+ ├─ templates/        # Page layouts
+ ├─ context/          # React contexts
+ ├─ hooks/            # Custom hooks
+ ├─ api/              # API calls
+ └─ interfaces/       # TypeScript typings
+mock-server/          # Mock server for backend
+
 ```
