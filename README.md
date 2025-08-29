@@ -52,9 +52,8 @@ http://localhost:5173
 ## Project Structure
 ```bash
 src/
- ├─ components/       # Atomic Design (Atoms, Molecules, Organisms)
+ ├─ components/       # Atomic Design (Atoms, Molecules, Organisms, templates)
  ├─ pages/            # Main pages
- ├─ templates/        # Page layouts
  ├─ context/          # React contexts
  ├─ hooks/            # Custom hooks
  ├─ api/              # API calls
