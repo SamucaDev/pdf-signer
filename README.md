@@ -61,3 +61,14 @@ src/
 mock-server/          # Mock server for backend
 
 ```
+
+## Future Steps
+This project is designed to be scalable and maintainable. Some planned improvements include:
+
+- **Unit and Integration Tests** – Using Jest and React Testing Library to ensure code reliability.  
+- **Performance Optimizations** – Implement lazy loading, code-splitting, and other best practices for fast rendering.  
+- **Enhanced UI/UX** – Add animations, transitions, and improved mobile responsiveness.  
+- **API Integration** – Connect with real backend APIs for dynamic data rendering.  
+- **Accessibility Improvements** – Ensure compliance with accessibility standards for all users.  
+
+These steps aim to align the project with industry best practices for high-performance, maintainable, and user-friendly front-end applications.
