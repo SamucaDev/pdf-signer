@@ -1,5 +1,5 @@
 import React from 'react';
-import { PdfViewerPage } from '../templates/PdfViewer';
+import { PdfViewerPage } from '../components/templates/PdfViewer';
 
 const ViewPdf: React.FC = () => {
   return (

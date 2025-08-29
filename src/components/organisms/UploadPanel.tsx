@@ -9,7 +9,8 @@ import { usePdf } from "../../context/pdfContext";
 import type { SignedPdf } from "../../interfaces/signedPdf";
 import ButtonString from "../atoms/ButtonString";
 import { useNavigate } from "react-router-dom";
-import Spinner from "../atoms/Spinner"; 
+import Spinner from "../atoms/Spinner";
+import Text from "../atoms/Text";
 
 const UploadPanel: React.FC = () => {
   const { selectPdf, pdfFile } = usePdfPicker();
@@ -28,7 +29,7 @@ const UploadPanel: React.FC = () => {
 
   const handleUpload = async () => {
     if (!pdfFile) return;
-    setLoading(true); 
+    setLoading(true);
     setError(null);
     try {
       const signed: SignedPdf = await pdfApi.sign(pdfFile);
@@ -61,26 +62,28 @@ const UploadPanel: React.FC = () => {
       <label htmlFor="pdfInput">
         <ButtonUpload label="Select the archive" onClick={handleButtonClick} />
       </label>
-      
+
       <div className="flex flex-col gap-4">
         {pdfFile && (
-          <Button
-            className="px-4 py-2 rounded-lg font-semibold text-white transition-colors"
-            onClick={handleUpload}
-            disabled={loading}
-          >
-            {loading ? <Spinner /> : "Sign PDF"}
-          </Button>
+          <div>
+            <Button
+              className="px-4 py-2 rounded-lg font-semibold text-white transition-colors"
+              onClick={handleUpload}
+              disabled={loading}
+            >
+              {loading ? <Spinner /> : "Sign PDF"}
+            </Button>
+          </div>
         )}
         {error && <div className="text-red-500">{error}</div>}
+
         {pdfFile && signedPdf && (
-          <>
+          <div className="flex flex-col gap-1">
+            <Text className="text-black">Last signed PDF:</Text>
+
             <FileRow fileName={signedPdf?.signedFileName || ""} />
-            <ButtonString
-              text="See"
-              onClick={() => navigate("viewer")}
-            />
-          </>
+            <ButtonString text="See" onClick={() => navigate("viewer")} />
+          </div>
         )}
       </div>
     </div>

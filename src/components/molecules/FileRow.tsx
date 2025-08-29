@@ -22,7 +22,7 @@ export const FileRow: React.FC<FileRowProps> = ({
   removeArchive,
 }) => (
   <div className="p-0 px-8 w-screen">
-    <div className="flex justify-between flex-col items-center p-4 border rounded-lg bg-white shadow-md mb-4 w-full">
+    <div className="flex justify-between flex-col items-center p-4 border rounded-lg bg-white shadow-md w-full">
       <Text className="font-medium text-gray-800 truncate w-full">
         {fileName}
       </Text>
@@ -33,7 +33,9 @@ export const FileRow: React.FC<FileRowProps> = ({
       )}
     </div>
     {removeArchive && (
-      <ButtonString text="Remove" onClick={removeArchive} />
+      <div>
+        <ButtonString text="Remove" onClick={removeArchive} />
+      </div>
     )}
   </div>
 );
